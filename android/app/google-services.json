@@ -1,0 +1,154 @@
+{
+  "project_info": {
+    "project_number": "82421006095",
+    "firebase_url": "https://safe-gate-9c9e7-default-rtdb.firebaseio.com",
+    "project_id": "safe-gate-9c9e7",
+    "storage_bucket": "safe-gate-9c9e7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:82421006095:android:75970e9bfb01ddab62487a",
+        "android_client_info": {
+          "package_name": "com.safetyx.gate_admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "82421006095-ddt2skbp21t87rf9h9dpol7jpm1gp6eu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.safetyx.gate_admin",
+            "certificate_hash": "160585f6d8cbf8bd2f236d18ca5a89b82d4d7d9a"
+          }
+        },
+        {
+          "client_id": "82421006095-nvnii6pdbftjfdih21klmqn54ohre99f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPT4EjbMv83O7GzcJ1RFWTWuXqzg-8vxI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "82421006095-nvnii6pdbftjfdih21klmqn54ohre99f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:82421006095:android:07c7d11d83a05b1762487a",
+        "android_client_info": {
+          "package_name": "com.safetyx.gate_watch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "82421006095-0lo8dii5j0meptc3p2gvncei2irnc0jm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.safetyx.gate_watch",
+            "certificate_hash": "160585f6d8cbf8bd2f236d18ca5a89b82d4d7d9a"
+          }
+        },
+        {
+          "client_id": "82421006095-0pql83mrenf8ibknhbviq36k3q2rdann.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.safetyx.gate_watch",
+            "certificate_hash": "020c4aedc7f0a7802ebd6c7366ccb5478c6848b6"
+          }
+        },
+        {
+          "client_id": "82421006095-e03mtlo640ihbr7945cgdtd5jgdec5q0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.safetyx.gate_watch",
+            "certificate_hash": "6df04512e39df9bbed13885511f9a6f3c2f0e6e2"
+          }
+        },
+        {
+          "client_id": "82421006095-nvnii6pdbftjfdih21klmqn54ohre99f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPT4EjbMv83O7GzcJ1RFWTWuXqzg-8vxI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "82421006095-nvnii6pdbftjfdih21klmqn54ohre99f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:82421006095:android:123bd1fe6c557d9762487a",
+        "android_client_info": {
+          "package_name": "com.safetyx.safe_gate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "82421006095-cgvv573je3si62fnps4coaf342j2fp1o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.safetyx.safe_gate",
+            "certificate_hash": "6df04512e39df9bbed13885511f9a6f3c2f0e6e2"
+          }
+        },
+        {
+          "client_id": "82421006095-eqvlir2vhesi0addlal0fqsademr1eq5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.safetyx.safe_gate",
+            "certificate_hash": "160585f6d8cbf8bd2f236d18ca5a89b82d4d7d9a"
+          }
+        },
+        {
+          "client_id": "82421006095-ro7bcn2bk53dtsc4nt2vpt5s1vtc4uam.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.safetyx.safe_gate",
+            "certificate_hash": "020c4aedc7f0a7802ebd6c7366ccb5478c6848b6"
+          }
+        },
+        {
+          "client_id": "82421006095-nvnii6pdbftjfdih21klmqn54ohre99f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPT4EjbMv83O7GzcJ1RFWTWuXqzg-8vxI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "82421006095-nvnii6pdbftjfdih21klmqn54ohre99f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
