@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class ResidentsDashboard extends StatefulWidget {
   const ResidentsDashboard(
@@ -13,26 +12,6 @@ class ResidentsDashboard extends StatefulWidget {
 }
 
 class _ResidentsDashboardState extends State<ResidentsDashboard> {
-  final userID = FirebaseAuth.instance.currentUser!.uid;
-  saveData() {
-    // print(data);
-    // print(typeOfStatus);
-    print("hii");
-    // await FirebaseFirestore.instance
-    //     .collection("request")
-    //     .doc(widget.menutype)
-    //     .collection(typeOfStatus)
-    //     .doc(userID)
-    //     .set({
-    //   "email": data['email'],
-    //   "flat": data['flat'],
-    //   "name": data['name'],
-    //   "type": data['type'],
-    //   "society_name": data['society_name'],
-    //   "wing": data['wing']
-    // });
-  }
-
   bool _isElevated = false;
   @override
   Widget build(BuildContext context) {
@@ -67,7 +46,7 @@ class _ResidentsDashboardState extends State<ResidentsDashboard> {
             children: snapshot.data!.docs.map((DocumentSnapshot document) {
               Map<String, dynamic> data =
                   document.data()! as Map<String, dynamic>;
-              print(data);
+              //print(data);
               // print((data["image_url"]).runtimeType);
               // Null image = data["image_url"];
               return Column(
@@ -102,25 +81,19 @@ class _ResidentsDashboardState extends State<ResidentsDashboard> {
                                 style: ButtonStyle(
                                     backgroundColor:
                                         MaterialStateProperty.all(Colors.red)),
-                                onPressed: () {
-                                  // FirebaseFirestore.instance
-                                  //     .collection('request')
-                                  //     .doc('request1')
-                                  //     .update({'status': '0'});
-                                  // FirebaseFirestore.instance
-                                  //     .collection("request")
-                                  //     .doc(widget.menutype)
-                                  //     .collection('decline')
-                                  //     .doc(userID)
-                                  //     .set({
-                                  //   "email": data['email'],
-                                  //   "flat": data['flat'],
-                                  //   "name": data['name'],
-                                  //   "type": data['type'],
-                                  //   "society_name": data['society_name'],
-                                  //   "wing": data['wing']
-                                  // });
-                                  saveData();
+                                onPressed: () async {
+                                  await FirebaseFirestore.instance
+                                      .collection("request")
+                                      .doc(widget.menutype)
+                                      .collection('decline')
+                                      .doc(document.id)
+                                      .set(data);
+                                  await FirebaseFirestore.instance
+                                      .collection("request")
+                                      .doc(widget.menutype)
+                                      .collection('pending')
+                                      .doc(document.id)
+                                      .delete();
                                 },
                                 child: const Text('Decline'),
                               ),
@@ -131,24 +104,19 @@ class _ResidentsDashboardState extends State<ResidentsDashboard> {
                                 style: ButtonStyle(
                                     backgroundColor: MaterialStateProperty.all(
                                         Colors.green)),
-                                onPressed: () {
-                                  FirebaseFirestore.instance
-                                      .collection('request')
-                                      .doc('request1')
-                                      .update({'status': '1'});
-                                  // FirebaseFirestore.instance
-                                  //     .collection("request")
-                                  //     .doc(widget.menutype)
-                                  //     .collection('approve')
-                                  //     .doc(userID)
-                                  //     .set({
-                                  //   "email": data['email'],
-                                  //   "flat": data['flat'],
-                                  //   "name": data['name'],
-                                  //   "type": data['type'],
-                                  //   "society_name": data['society_name'],
-                                  //   "wing": data['wing']
-                                  // });
+                                onPressed: () async{
+                               await FirebaseFirestore.instance
+                                      .collection("request")
+                                      .doc(widget.menutype)
+                                      .collection('approve')
+                                      .doc(document.id)
+                                      .set(data);
+                                  await FirebaseFirestore.instance
+                                      .collection("request")
+                                      .doc(widget.menutype)
+                                      .collection('pending')
+                                      .doc(document.id)
+                                      .delete();
                                 },
                                 child: const Text('Approve'),
                               ),

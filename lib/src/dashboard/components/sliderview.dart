@@ -22,7 +22,7 @@ class SliderView extends StatelessWidget {
             backgroundColor: Colors.grey,
             child: CircleAvatar(
               radius: 60,
-              backgroundImage: AssetImage('assets/images/user_profile.jpg'),
+              backgroundImage: AssetImage('assets/images/pdf_image.png'),
             ),
           ),
           SizedBox(

@@ -38,9 +38,7 @@ class _DashboardMainState extends State<DashboardMain> {
       //   elevation: 20,
       //   title: const Text('Resident Requests'),
       // ),
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
+      body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: Colors.white,
@@ -91,3 +89,62 @@ class _DashboardMainState extends State<DashboardMain> {
     );
   }
 }
+
+// Widget DashboardMain(BuildContext context){
+//   return Scaffold(
+//       // backgroundColor: Colors.white,
+//       // appBar: AppBar(
+//       //   elevation: 20,
+//       //   title: const Text('Resident Requests'),
+//       // ),
+//       body: _widgetOptions.elementAt(_selectedIndex),
+//       bottomNavigationBar: Container(
+//         decoration: BoxDecoration(
+//           color: Colors.white,
+//           boxShadow: [
+//             BoxShadow(
+//               blurRadius: 20,
+//               color: Colors.black.withOpacity(.1),
+//             )
+//           ],
+//         ),
+//         child: SafeArea(
+//           child: Padding(
+//             padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+//             child: GNav(
+//               rippleColor: Colors.grey[300]!,
+//               hoverColor: Colors.grey[100]!,
+//               gap: 8,
+//               activeColor: Colors.black,
+//               iconSize: 24,
+//               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+//               duration: Duration(milliseconds: 400),
+//               tabBackgroundColor: Colors.grey[100]!,
+//               color: Colors.black,
+//               tabs: [
+//                 GButton(
+//                   icon: LineIcons.home,
+//                   text: 'Pending',
+//                 ),
+//                 GButton(
+//                   icon: LineIcons.heart,
+//                   text: 'Approved',
+//                 ),
+//                 GButton(
+//                   icon: LineIcons.search,
+//                   text: 'Declined',
+//                 ),
+//               ],
+//               selectedIndex: _selectedIndex,
+//               onTabChange: (index) {
+//                 setState(() {
+//                   _selectedIndex = index;
+//                 });
+//               },
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+
+// }
