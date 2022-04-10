@@ -7,6 +7,7 @@ class ResidentsDashboard extends StatefulWidget {
       : super(key: key);
   final String status;
   final String menutype;
+  // final BuildContext context;
   @override
   State<ResidentsDashboard> createState() => _ResidentsDashboardState();
 }
@@ -75,6 +76,7 @@ class _ResidentsDashboardState extends State<ResidentsDashboard> {
                             ]),
                           ),
                           Row(children: [
+                            if(widget.status != 'decline')...[
                             Padding(
                               padding: const EdgeInsets.all(5.0),
                               child: ElevatedButton(
@@ -120,7 +122,33 @@ class _ResidentsDashboardState extends State<ResidentsDashboard> {
                                 },
                                 child: const Text('Approve'),
                               ),
-                            ),
+                            )]
+                            else if(widget.status == 'decline')...[
+                              Padding(
+                              padding: const EdgeInsets.all(5.0),
+                              child: ElevatedButton(
+                                style: ButtonStyle(
+                                    backgroundColor: MaterialStateProperty.all(
+                                        Colors.green)),
+                                onPressed: () async{
+                               await FirebaseFirestore.instance
+                                      .collection("request")
+                                      .doc(widget.menutype)
+                                      .collection('approve')
+                                      .doc(document.id)
+                                      .set(data);
+                                  await FirebaseFirestore.instance
+                                      .collection("request")
+                                      .doc(widget.menutype)
+                                      .collection('decline')
+                                      .doc(document.id)
+                                      .delete();
+                                },
+                                child: const Text('Reapprove'),
+                              ),
+                            )
+
+                            ]
                           ])
                         ],
                       ),

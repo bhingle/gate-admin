@@ -6,25 +6,37 @@ import 'package:gate_admin/src/dashboard/components/residents_dashboard.dart';
 class DashboardMain extends StatefulWidget {
   const DashboardMain({Key? key, required this.menu}) : super(key: key);
   final String menu;
+  // final BuildContext context;
 
   @override
   State<DashboardMain> createState() => _DashboardMainState();
 }
 
 class _DashboardMainState extends State<DashboardMain> {
-//   String  menu;
-//  _DashboardMainState(this.menu);
+//   late String  menu;
+//  _DashboardMainState(menu){
+//    menu=this.menu;
+//  }
   int _selectedIndex = 0;
-  late List<Widget> _widgetOptions;
+  // var widgetOptions;
+  @override
+  // late BuildContext context;
   @override
   void initState() {
-    _widgetOptions = <Widget>[
-      ResidentsDashboard(menutype: widget.menu, status: 'pending'),
-      ResidentsDashboard(menutype: widget.menu, status: 'approve'),
-      ResidentsDashboard(menutype: widget.menu, status: 'decline'),
-    ];
+    // widgetOptions = <Widget>[
+    //   ResidentsDashboard(menutype: widget.menu, status: 'pending'),
+    //   ResidentsDashboard(menutype: widget.menu, status: 'approve'),
+    //   ResidentsDashboard(menutype: widget.menu, status: 'decline'),
+    // ];
+    // context = widget.context;
     super.initState();
   }
+  final List<String> _status=['pending','approve','decline'];
+  //  var widgetOptions = <Widget>[
+  //     ResidentsDashboard(menutype: menu, status: 'pending'),
+  //     ResidentsDashboard(menutype: menu, status: 'approve'),
+  //     ResidentsDashboard(menutype: widget.menu, status: 'decline'),
+  //   ];
 
   //String menu=menu;
   static const TextStyle optionStyle =
@@ -38,7 +50,7 @@ class _DashboardMainState extends State<DashboardMain> {
       //   elevation: 20,
       //   title: const Text('Resident Requests'),
       // ),
-      body: _widgetOptions.elementAt(_selectedIndex),
+      body: ResidentsDashboard(menutype: widget.menu, status: _status.elementAt(_selectedIndex)),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: Colors.white,
@@ -64,15 +76,15 @@ class _DashboardMainState extends State<DashboardMain> {
               color: Colors.black,
               tabs: [
                 GButton(
-                  icon: LineIcons.home,
+                  icon: IconData(0xee2b, fontFamily: 'MaterialIcons'),
                   text: 'Pending',
                 ),
                 GButton(
-                  icon: LineIcons.heart,
+                  icon: IconData(0xf47d, fontFamily: 'MaterialIcons'),
                   text: 'Approved',
                 ),
                 GButton(
-                  icon: LineIcons.search,
+                  icon: IconData(0xf0fe, fontFamily: 'MaterialIcons'),
                   text: 'Declined',
                 ),
               ],

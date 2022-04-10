@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slider_drawer/flutter_slider_drawer.dart';
 import 'package:gate_admin/src/dashboard/components/sliderview.dart';
 import 'package:gate_admin/src/dashboard/components/dashboard_main.dart';
+
 class DashboardScreen extends StatefulWidget {
-  const DashboardScreen({ Key? key }) : super(key: key);
+  const DashboardScreen({Key? key}) : super(key: key);
   static const routeName = '/dashboard';
 
   @override
@@ -23,23 +24,26 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SliderDrawer(
-            appBar: SliderAppBar(
-                appBarColor: Colors.transparent,
-                title: Text(title,
-                    style: const TextStyle(
-                        fontSize: 22, fontWeight: FontWeight.w700))),
-            key: _key,
-            sliderOpenSize: 179,
-            slider: SliderView(
-              onItemClick: (title) {
-                _key.currentState!.closeSlider();
-                setState(() {
-                  this.title = title;
-                });
-              },
-            ),
-            child: DashboardMain(menu:title)),
-      );
+      body: SliderDrawer(
+          appBar: SliderAppBar(
+              appBarColor: Colors.black,
+              title: Text(title,
+                  style: const TextStyle(
+                      fontSize: 22, fontWeight: FontWeight.w700))),
+          key: _key,
+          sliderOpenSize: 179,
+          slider: SliderView(
+            onItemClick: (title) {
+              _key.currentState!.closeSlider();
+              setState(() {
+                this.title = title;
+                // print(title);
+              });
+            },
+          ),
+          // child: DashboardMain(menu: title, context: context)),
+          child: DashboardMain(menu: title)),
+
+    );
   }
 }
