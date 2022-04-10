@@ -22,14 +22,14 @@ class SliderView extends StatelessWidget {
             backgroundColor: Colors.grey,
             child: CircleAvatar(
               radius: 60,
-              backgroundImage: AssetImage('assets/images/pdf_image.png'),
+              backgroundImage: AssetImage('assets/images/admin.png'),
             ),
           ),
           SizedBox(
             height: 20,
           ),
           Text(
-            'Nick',
+            'Admin',
             style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
@@ -40,10 +40,10 @@ class SliderView extends StatelessWidget {
             height: 20,
           ),
           SliderMenuItem(
-              title: 'resident', iconData: Icons.home, onTap: onItemClick),
+              title: 'resident', iconData: IconData(0xf26b, fontFamily: 'MaterialIcons'), onTap: onItemClick),
           SliderMenuItem(
               title: 'society',
-              iconData: Icons.add_circle,
+              iconData: Icons.home,
               onTap: onItemClick),
           // SliderMenuItem(
           //     title: 'logs',

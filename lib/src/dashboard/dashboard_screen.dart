@@ -26,7 +26,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     return Scaffold(
       body: SliderDrawer(
           appBar: SliderAppBar(
-              appBarColor: Colors.black,
+              appBarColor: Theme.of(context).colorScheme.secondary,
               title: Text(title,
                   style: const TextStyle(
                       fontSize: 22, fontWeight: FontWeight.w700))),

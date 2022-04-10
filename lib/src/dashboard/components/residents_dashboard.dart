@@ -50,6 +50,7 @@ class _ResidentsDashboardState extends State<ResidentsDashboard> {
               //print(data);
               // print((data["image_url"]).runtimeType);
               // Null image = data["image_url"];
+             // (data.isEmpty)?return Text("Empty"):
               return Column(
                 children: [
                   Divider(),
@@ -75,81 +76,83 @@ class _ResidentsDashboardState extends State<ResidentsDashboard> {
                               Text("Flat No: " + data['flat']),
                             ]),
                           ),
-                          Row(children: [
-                            if(widget.status != 'decline')...[
-                            Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: ElevatedButton(
-                                style: ButtonStyle(
-                                    backgroundColor:
-                                        MaterialStateProperty.all(Colors.red)),
-                                onPressed: () async {
-                                  await FirebaseFirestore.instance
-                                      .collection("request")
-                                      .doc(widget.menutype)
-                                      .collection('decline')
-                                      .doc(document.id)
-                                      .set(data);
-                                  await FirebaseFirestore.instance
-                                      .collection("request")
-                                      .doc(widget.menutype)
-                                      .collection('pending')
-                                      .doc(document.id)
-                                      .delete();
-                                },
-                                child: const Text('Decline'),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: ElevatedButton(
-                                style: ButtonStyle(
-                                    backgroundColor: MaterialStateProperty.all(
-                                        Colors.green)),
-                                onPressed: () async{
-                               await FirebaseFirestore.instance
-                                      .collection("request")
-                                      .doc(widget.menutype)
-                                      .collection('approve')
-                                      .doc(document.id)
-                                      .set(data);
-                                  await FirebaseFirestore.instance
-                                      .collection("request")
-                                      .doc(widget.menutype)
-                                      .collection('pending')
-                                      .doc(document.id)
-                                      .delete();
-                                },
-                                child: const Text('Approve'),
-                              ),
-                            )]
-                            else if(widget.status == 'decline')...[
-                              Padding(
-                              padding: const EdgeInsets.all(5.0),
-                              child: ElevatedButton(
-                                style: ButtonStyle(
-                                    backgroundColor: MaterialStateProperty.all(
-                                        Colors.green)),
-                                onPressed: () async{
-                               await FirebaseFirestore.instance
-                                      .collection("request")
-                                      .doc(widget.menutype)
-                                      .collection('approve')
-                                      .doc(document.id)
-                                      .set(data);
-                                  await FirebaseFirestore.instance
-                                      .collection("request")
-                                      .doc(widget.menutype)
-                                      .collection('decline')
-                                      .doc(document.id)
-                                      .delete();
-                                },
-                                child: const Text('Reapprove'),
-                              ),
-                            )
-
-                            ]
-                          ])
+                          (widget.status == 'pending')
+                              ? Row(children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(5.0),
+                                    child: ElevatedButton(
+                                      style: ButtonStyle(
+                                          backgroundColor:
+                                              MaterialStateProperty.all(
+                                                  Colors.red)),
+                                      onPressed: () async {
+                                        await FirebaseFirestore.instance
+                                            .collection("request")
+                                            .doc(widget.menutype)
+                                            .collection('decline')
+                                            .doc(document.id)
+                                            .set(data);
+                                        await FirebaseFirestore.instance
+                                            .collection("request")
+                                            .doc(widget.menutype)
+                                            .collection('pending')
+                                            .doc(document.id)
+                                            .delete();
+                                      },
+                                      child: const Text('Decline'),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(5.0),
+                                    child: ElevatedButton(
+                                      style: ButtonStyle(
+                                          backgroundColor:
+                                              MaterialStateProperty.all(
+                                                  Colors.green)),
+                                      onPressed: () async {
+                                        await FirebaseFirestore.instance
+                                            .collection("request")
+                                            .doc(widget.menutype)
+                                            .collection('approve')
+                                            .doc(document.id)
+                                            .set(data);
+                                        await FirebaseFirestore.instance
+                                            .collection("request")
+                                            .doc(widget.menutype)
+                                            .collection('pending')
+                                            .doc(document.id)
+                                            .delete();
+                                      },
+                                      child: const Text('Approve'),
+                                    ),
+                                  ),
+                                ])
+                              : ((widget.status == 'decline'))?Row(children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(5.0),
+                                    child: ElevatedButton(
+                                      style: ButtonStyle(
+                                          backgroundColor:
+                                              MaterialStateProperty.all(
+                                                  Colors.green)),
+                                      onPressed: () async {
+                                        await FirebaseFirestore.instance
+                                            .collection("request")
+                                            .doc(widget.menutype)
+                                            .collection('approve')
+                                            .doc(document.id)
+                                            .set(data);
+                                        await FirebaseFirestore.instance
+                                            .collection("request")
+                                            .doc(widget.menutype)
+                                            .collection('decline')
+                                            .doc(document.id)
+                                            .delete();
+                                      },
+                                      child: const Text('Reapprove'),
+                                    ),
+                                  ),
+                                ]):Row()
                         ],
                       ),
                     ]),
